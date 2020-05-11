@@ -1,6 +1,6 @@
 {
   "name": "aws-ssm-parameter-store-util",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "AWS SSM Parameter Store Util",
   "main": "index.js",
   "scripts": {
