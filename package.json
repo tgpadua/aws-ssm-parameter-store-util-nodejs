@@ -1,0 +1,26 @@
+{
+  "name": "aws-ssm-parameter-store-util",
+  "version": "1.0.2",
+  "description": "AWS SSM Parameter Store Util",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tgpadua/aws-ssm-parameter-store-util-nodejs.git"
+  },
+  "keywords": [
+    "aws",
+    "ssm",
+    "parameterstore"
+  ],
+  "author": "tgpadua",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tgpadua/aws-ssm-parameter-store-util-nodejs/issues"
+  },
+  "homepage": "https://github.com/tgpadua/aws-ssm-parameter-store-util-nodejs#readme",
+  "dependencies": {},
+  "devDependencies": {}
+}
