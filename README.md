@@ -14,12 +14,13 @@ Parameter Value: Hello World!
 ```
 
 Node.JS
-```
+```javascript
 const ps = require('aws-ssm-parameter-store-util');
 const PARAMETERS_PATH = '/hello';
 
 # Will return 'Hello World!'
 exports.handler = async(event) => {
+    await ps.init(PARAMETERS_PATH); // load ssm parameters
     return ps.greetings;
 }
 ```
