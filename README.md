@@ -28,5 +28,5 @@ _Note: If not executed from AWS Lambda, the 'aws-sdk' package must be imported._
 
 ## Uninstall
 ```
-npm unistall aws-ssm-parameter-store-util
+npm uninstall aws-ssm-parameter-store-util
 ```
