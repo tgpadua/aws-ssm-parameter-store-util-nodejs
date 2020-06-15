@@ -20,7 +20,11 @@ const PARAMETERS_PATH = '/hello';
 
 # Will return 'Hello World!'
 exports.handler = async(event) => {
-    await ps.init(PARAMETERS_PATH); // load ssm parameters
+    await ps.init({
+        path: PARAMETERS_PATH,  // required
+        config: { region: 'us-east-1' } // optional
+    });
+
     return ps.greetings;
 }
 ```

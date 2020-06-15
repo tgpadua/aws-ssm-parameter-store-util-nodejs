@@ -1,15 +1,22 @@
 const AWS = require('aws-sdk');
-const ssm = new AWS.SSM();
 
 var init = false;
+var ssm;
 
-exports.init = async function(path) {
+
+exports.init = async function(parameters) {
     if (!init) {
-        console.log('Loading parameters from SSM');
+        let config = parameters.config;
+        let path = parameters.path;
+        
+        if(config != null) {
+            AWS.config.update(config);                
+        }
+        
+        ssm = new AWS.SSM(); // it MUST be initiated after config.update
         let data = await getParametersFromStore(path);
         exportParameters(data);
-    } else {
-        console.log('Parameters already initialized, nothing to load.');
+        init = true;
     }
 }
 
@@ -21,9 +28,8 @@ async function getParametersFromStore(path) {
     return new Promise((resolve, reject) => {
         ssm.getParametersByPath(params, function(err, data) {
             if (err) {
-                console.log(err, err.stack); // an error occurred
+                throw new Error(err);
             } else {
-                //console.log(data); // successful response
                 resolve(data.Parameters);
             }
         });
@@ -38,5 +44,4 @@ function exportParameters(data) {
         let value = parameter.Value;
         exports[property] = value;
     }
-    init = true;
 }
